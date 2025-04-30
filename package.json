@@ -1,0 +1,84 @@
+{
+  "name": "pointchangepaint",
+  "version": "0.0.0",
+  "description": "screenshot eyedrop paint",
+  "author": "pointchange",
+  "license": "MIT",
+  "private": true,
+  "main": "dist/src/main/index.js",
+  "scripts": {
+    "dev": "chcp 65001 && vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "e-build": "rimraf dist && rimraf release && vite build && electron-builder",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build"
+  },
+  "build": {
+    "appId": "com.pointchangepaint.desktop",
+    "productName": "pointchangepaint",
+    "asar": true,
+    "copyright": "Copyright © 2025 pointchange",
+    "directories": {
+      "output": "release/${version}"
+    },
+    "files": [
+      "!.git",
+      "!.vscode",
+      "!src/*",
+      "!env.d.ts",
+      "!README.md",
+      "!tsconfig.app.json",
+      "!tsconfig.json",
+      "!tsconfig.node.json",
+      "!vite.config.ts",
+      "!.gitignore"
+    ],
+    "extraResources": "extraResources",
+    "win": {
+      "icon": "resources/android-chrome-256x256.ico",
+      "target": [
+        {
+          "target": "nsis"
+        }
+      ],
+      "artifactName": "${productName}_${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "language": "2052",
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": true,
+      "installerIcon": "resources/android-chrome-256x256.ico",
+      "uninstallerIcon": "resources/android-chrome-256x256.ico",
+      "installerHeaderIcon": "resources/android-chrome-256x256.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "dependencies": {
+    "@vicons/fluent": "^0.13.0",
+    "naive-ui": "^2.41.0",
+    "pinia": "^3.0.1",
+    "pinia-plugin-persistedstate": "^4.2.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.1",
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vue/tsconfig": "^0.7.0",
+    "electron": "^35.1.4",
+    "electron-builder": "^26.0.12",
+    "electron-devtools-installer": "^4.0.0",
+    "npm-run-all2": "^7.0.2",
+    "rimraf": "^6.0.1",
+    "typescript": "~5.8.0",
+    "vite": "^6.2.4",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6",
+    "vite-plugin-vue-devtools": "^7.7.2",
+    "vue-tsc": "^2.2.8"
+  }
+}

@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+html,
+body {
+    /* width: calc(100% - 4px);
+    height: calc(100% - 4px); */
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: block;
+    /* border: 2px solid #18a058; */
+}
+
+:root {
+    --tooltip-content: '';
+    --tooltip-x: 0px;
+    --tooltip-y: 0px;
+    --tooltip-show: hidden;
+}
